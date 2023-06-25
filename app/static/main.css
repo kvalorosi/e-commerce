@@ -1,0 +1,24 @@
+body {
+    background-color: royalblue;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    grid-auto-columns: minmax(2px, auto); 
+    grid-gap: 2.5rem;
+    padding-left: 2.5rem;
+    padding-top: 2.5rem;
+}
+
+.custom-navbar {
+    background-color: lightskyblue;
+  }
+
+.container-home {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -9,9 +9,18 @@ class User(db.Model):
     email = db.Column(db.String, nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
     
-
     def __init__(self, username, email, password):
         self.username = username
         self.email = email
         self.password = password
+
+    def save_user(self):
+        db.session.add(self)
+        db.session.commit()
+
+
+
+    
+
+
 
