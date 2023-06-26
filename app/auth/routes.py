@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, redirect, render_template, request, url_for
 
 from .forms import RegisterForm, LoginForm
 from ..models import User
@@ -18,6 +18,7 @@ def register():
 
             user = User(username, email, password)
             user.save_user()
+            return redirect(url_for('auth.login'))
             
 
     return render_template('register.html', form=form)
@@ -29,6 +30,8 @@ def login():
         if form.validate():
             user_name = form.username.data
             password = form.password.data
+
+        return redirect(url_for('get_products'))
 
     return render_template('login.html', form=form)
 
