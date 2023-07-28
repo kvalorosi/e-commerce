@@ -28,7 +28,8 @@
             
             <div class="card-body">
                 <a href="{{ url_for('get_product', product_id=d['ID']) }}" class="btn btn-danger">View</a>
-                <a href="#" class="btn btn-primary">Add to cart</a>
+                <a href="{{ url_for('cart.add_to_cart', product_id=d['ID']) }}" class="btn btn-primary">Add to cart</a>
+                <!-- need to add route link to button -->
             </div>
         </div>
         {% endfor %}

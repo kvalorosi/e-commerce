@@ -35,5 +35,6 @@ def get_product(product_id):
             'Description': product['description'],
             'Image': product['image']
         }
+# need to a function to add product to database
         print(product_info)
         return render_template('product.html', data=product_info)

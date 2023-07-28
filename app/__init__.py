@@ -4,7 +4,9 @@ from config import Config
 
 from .auth.routes import auth
 
-from .models import db
+from .cart.routes import cart 
+
+from .models import db, User, Product
 
 from flask_migrate import Migrate
 
@@ -16,6 +18,10 @@ db.init_app(app)
 migrate = Migrate(app, db)
 
 app.register_blueprint(auth)
+
+app.register_blueprint(cart)
+
+
 
 from . import routes
 from . import models
