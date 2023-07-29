@@ -23,8 +23,24 @@ class User(db.Model):
         db.session.add(self)
         db.session.commit()
 
+
     def addCart(self, product):
         self.add_to_cart.append(product)
+=======
+class Product(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    price = db.Column(db.Numeric, nullable=False)
+    description = db.Column(db.String, nullable=False)
+
+    def __init__(self, name, price, description):
+        self.name = name
+        self.price = price
+        self.description = description
+
+
+    def save_product(self):
+        db.session.add(self)
         db.session.commit()
 
     def removeCart(self, product):
