@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1>Shopping Cart</h1>
+
+<body>
+  {% include 'nav.html' %}
+
+  <div class="card-grid">
+      {% for item in cart_items %}
+      <div class="card" style="width: 18rem;">
+          <img src="{{ item['Image'] }}" class="card-img-top" alt="...">
+          <div class="card-body">
+              <h1 class="card-title">{{ item['Name'] }}</h1>
+              <h6 class="card-text">{{ item['Description'] }}</h6>
+          </div>
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item">${{ item['Price'] }}</li>
+
+          </ul>
+          
+          <div class="card-body">
+              
+              <a href="{{ url_for('remove_from_cart, product_id=item['ID']) }}" class="btn btn-primary">Remove</a>
+              
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+
+
+
+
+  {% endblock %}
